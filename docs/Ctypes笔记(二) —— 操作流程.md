@@ -21,7 +21,7 @@ typedef struct Node {
 
 以下为3个C函数的函数声明，`insert_node()`在链表末尾插入新节点，`delete_node()`在链表中删除目标节点，`print_list()`打印链表所有节点的内容。函数的具体实现见[test.cpp](../src/C/test.cpp).
 ```C
-int insert_node(Node **linkp, int i, int arr[], Point point);
+int insert_node(Node **linkp, int i, int arr[3], Point point);
 int delete_node(Node **linkp, int i);
 void print_list(Node *head);
 ```

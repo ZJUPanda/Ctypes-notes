@@ -101,7 +101,19 @@ b'abc'
 0
 ```
 #### 2.2 从列表创建ctypes数组对象
+`ctypes`支持从一维列表直接创建一维数组对象。由一维数组对象可进一步创建多维数组对象。
+```python
+>>> a = [1, 2, 3]  # 列表a 
+>>> b = [4, 5, 6]  # 列表b
+>>> aa = (ctypes.c_int*3)(*a)  # 一维数组aa
+>>> bb = (ctypes.c_int*3)(*b)  # 一维数组bb
+>>> print(aa)
+<__main__.c_long_Array_3 object at 0x00000196ADB65248>
 
+>>> c = ((ctypes.c_int*3)*2) (aa,bb)  # 二维数组c
+>>> print(c)
+<__main__.c_long_Array_3_Array_2 object at 0x00000196ADB65448>
+```
 
 #### 2.3 从numpy数组创建ctypes数组对象
 `numpy`提供了`ctypes`的相关模块`numpy.ctypeslib`，该模块提供了一系列方法用于`ctypes`对象和`numpy`对象间的转换。
